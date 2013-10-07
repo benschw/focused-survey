@@ -1,0 +1,22 @@
+
+;  Config File
+
+
+[database]
+
+enabled 	= 1
+login 		= jxschw
+password 	= aslkjhds98kjg123jjg3i
+database 	= jxschw_focusedsurveys
+server 		= mysql.focusedsurveys.com
+
+
+[defaults]
+
+
+phase1Subject = Invitation to participate in a Focused Survey
+phase1Body = You are invited to take a unique two-phase Focused Survey.
+
+
+phase2Subject = Phase 2 of your Focused Survey
+phase2Body = Please select the URL, below, to complete Phase 2 of your Focused Survey.  You will be asked to indicate in a closed-ended survey the extent to which you agree or disagree with the comments that were entered by all respondents in Phase 1.

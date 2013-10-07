@@ -1,0 +1,327 @@
+body {
+	padding: 0;
+	background-color: #000000;
+}
+h2 {
+	height: 18px;
+}
+#frame {
+	width: auto;
+	margin: 0;
+	padding: 15px;
+	border: 0;
+	background-color: #000000
+}
+#panel {
+	border: 1px solid #1b1b1b;
+}
+#header {
+}
+#performLogout, #mainHelp{
+	color: #ffffff;
+	font-size: 12px;
+	text-align: right;
+	display: block;
+	width: 75px;
+	float: right;
+}
+#performLogout {
+	margin-top: 5px;
+}
+#mainNav {
+	margin: 0;
+	padding: 10px 0 15px 0;
+}
+a {
+	text-decoration: none;
+}
+a img {
+	border: none;
+}
+#mainNav a{
+	color: #ffffff;
+	background: none;
+}
+#mainNav li {
+	background: url(/media/images/header-gradient-black.png) repeat-x;
+	color : #ffffff;
+	cursor: pointer;
+	margin: 0;
+	height: 30px;
+	padding: 10px;
+	display: inline;
+	list-style: none;
+	border-right: 1px solid #1b1b1b;
+	border-left: 1px solid #1b1b1b;
+}
+#overview {
+	margin: 15px;
+	border: 1px solid #000000;
+	text-align: center;
+	color: #eeeeee;
+}
+/* Survey Tools Panel ======================================================*/
+
+#panel h2 {
+	margin: 0;
+	padding: 5px;
+	font-size: 18px;
+	height: 18px;
+	text-align: center;
+	background: url(/media/images/header-gradient.png) repeat-x;
+	border-bottom: 1px solid #b2df37;
+}
+#listComponentWrapper {
+	background-color: #ffffff;
+	border-right: 1px solid #000000;
+	width: 250px;
+	float: left;
+}
+#listComponent {
+	overflow-y: scroll;
+}
+#listComponent {
+	margin: 0;
+	padding: 5px 0;
+}
+#listComponent a.activateRenameForm {
+	color: #000000;
+	text-decoration: none;
+}
+#listComponent li {
+	background: url(/media/images/survey-icon.png) no-repeat;
+	background-position: 15px 0;
+	cursor: pointer;
+	list-style: none;
+	border-bottom: 1px solid #b2df37;
+	margin: 0;
+	padding: 3px 15px 3px 45px;
+}
+#listComponent li.selected {
+	background-color: #bde455;
+}
+#listComponent li input {
+	width : 120px;
+}
+#listComponentTools {
+	height: 24px;
+	border-top: 1px solid #b2df37;
+	background-color: #bde455;
+}
+#listComponentTools img {
+	cursor: pointer;
+/*	height: 16px;
+	width: 16px;
+*/	margin: 0;
+	margin: 2px;
+}
+
+
+/* Tools ================================================================== */
+
+#surveyToolsPanel {
+	background-color: #ffffff;
+	overflow-y: hidden;
+}
+
+#surveyToolsPanel .verbose {
+	font-size: 15px;
+	text-align: left;
+}
+#surveyToolsPanel .verbose dt {
+	width : 100px;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+#surveyToolsPanel .verbose dd {
+	padding: 0;
+	margin: 0 0 0 100px;
+}
+#surveyToolsPanel .verbose dd img{
+	width : 15px;
+	height : 15px;
+}
+#surveyToolsOverview {
+	text-align: center;
+	margin: 40px;
+}
+
+#surveyToolsInnerWrapper {
+	margin: -10px 15px 10px 15px;
+	padding: 15px 10px 10px 10px;
+	border: 1px solid #cccccc;
+	height: 237px;
+	overflow-y: scroll;
+}
+#surveyToolsInnerWrapper fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}	
+	
+#extraFunctions {
+	float: left;
+	background-color: #fff;
+	height: 30px;
+	width: 550px;
+	padding: 0 0 0 20px;
+}	
+#extraFunctions input {
+	margin: 0 15px 0 20px;
+}
+#extraFunctions img {
+	position: relative;
+	top : 5px;
+}	
+#saveSurvey {
+	cursor: pointer;
+	float: right;
+	margin-right: 35px; 
+	width: 100px;
+	height: 25px;
+	border: 1px solid #cccccc;
+	background-color: #eeeeee;
+}
+#surveyToolNav {
+	position: relative;
+	z-index: 10;
+	text-align: center;
+	margin: 5px 0 0 0;
+	padding: 0;
+	height: 20px;
+}
+
+#surveyToolNav li {
+	cursor: pointer;
+	background-color: #eeeeee;
+	border: 1px solid #cccccc;
+	margin: 0 15px;
+	padding: 0 15px;
+	list-style: none;
+	display: inline;
+}
+#surveyToolNav li a {
+	color: #000000;
+	text-decoration: none;
+}
+#surveyToolNav li.selected {
+	background-color: #cccccc;
+}
+
+
+/* Tool Specific ===========================================================*/
+
+#generalPanel .inner {
+	padding: 20px 50px;
+}
+#generalPanel input, #generalPanel textarea {
+	width: 100%;
+	margin-bottom: 10px;
+}
+#usersPanel textarea {
+	width: 100%;
+	height: 150px;
+}
+#scheduleMode label {
+	float: left;
+	width: 250px;
+}
+#adminsPanel table, #moderatePanel table {
+	margin-bottom: 20px;
+}
+#adminsPanel table th {
+	padding: 0 5px;
+	background-color: #eeeeee;
+}
+#adminsPanel table td, , #moderatePanel table td {
+	border: 1px solid #eeeeee;
+	text-align: center;
+}
+#adminsPanel img {
+	cursor: pointer;
+}
+
+#moderatePanel table {
+	width: 100%;
+}
+
+#moderatePanel img {
+	cursor: pointer;
+}
+#moderatePanel table td{
+	border-bottom: 1px solid #cccccc;
+}	
+#moderatePanel table tr.new td{
+	border: 1px solid green;
+}
+#moderatePanel table tr.deleted td{
+	border: 1px solid #ff0000;
+}
+
+#moderatePanel table .deleteColumn {
+	text-align: center;
+	width: 30px;
+}
+
+textarea#newEntry {
+	float: right;
+	width: 435px;
+	height: 30px;
+	margin-right: 10px;
+}
+
+#reportsPanel table {
+	width: 100%;
+}
+#reportsPanel table th {
+	text-align: left;
+	padding: 0 5px;
+	font-size: 16px;
+	border-bottom: 1px solid #1b1b1b;
+	border-top: 1px solid #1b1b1b;
+}
+#reportsPanel table td {
+	font-size: 14px;
+	vertical-align : top;
+	border-bottom: 1px solid #cccccc;
+}
+#reportsPanel table .rating {
+	text-align: center;
+	width: 100px;
+}
+#reportsPanel table .moderated td {
+	border: 1px solid green;
+}
+#reportsPanel table .deleted td {
+	border: 1px solid #ff0000;
+}
+
+
+/* Help ====================================================================*/
+
+.mbox_wrapper h2 {
+	margin: 0;
+	padding: 5px;
+	font-size: 18px;
+	height: 18px;
+	text-align: center;
+	background: url(/media/images/header-gradient.png) repeat-x;
+	border-bottom: 1px solid #b2df37;
+}
+
+
+#surveyToolsPanel .instructionsHelp {
+	float: right;
+}
+#surveyToolsOverview .instructionsHelp {
+	float: none;
+}
+
+
+
+.helpBox {
+	height : 276px;
+	padding: 10px;
+	overflow-y: scroll;
+}

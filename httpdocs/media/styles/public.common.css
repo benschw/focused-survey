@@ -1,0 +1,36 @@
+#frame {
+	width: 700px;
+	margin: 0 auto 0 auto;
+	border: 0px solid #1b1b1b;
+}
+#footer {
+	margin: 20px 0 0 0;
+	padding: 20px 0 0 0;
+	text-align: center;
+	border-top: 2px solid #778659;
+	font-size: 12px;
+}
+#footer a {
+	color: #000000;
+}
+#header {
+	background-color: #9FB961;
+	height: 100px;
+	border-left: 2px solid #778659;
+	border-right: 2px solid #778659;
+	padding: 30px 0 0 0;
+}
+#header h1 {
+	text-align: center;
+	font-family: Trebuchet, sans-serif;
+}
+#subHeader1 {
+	padding-top: 20px;
+	border: 2px solid #778659;
+	background-color: #778659;
+	margin-bottom: 20px;
+}
+#subHeader2 {
+	height: 20px;
+	background-color: #B2B1BA
+}

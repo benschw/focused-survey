@@ -1,0 +1,132 @@
+/*
+olive
+light   #9FB961
+medium  #778659
+dark    #1C2112
+bright  #789C21
+
+
+grey
+light   #B2B1BA
+medium  #555559
+darker  #3f3f3f
+dark    #2A2A2C
+*/
+
+.rounded {
+	float: left;
+	background-color: #3f3f3f;
+	width: 343px;
+	margin: 0 5px 0 0;
+	height: 328px;
+	color: #ffffff;
+}
+.rounded.login {
+	background-color: #789C21;
+	margin: 0 0 0 5px;
+	color: #000000;
+}
+.rounded .inner {
+	padding: 10px;
+	height: 278px;
+}
+.rounded .tl, .rounded .bl {
+	float: left;
+	width: 15px;
+	height: 15px;
+}
+.rounded .tr, .rounded .br {
+	float: right;
+	width: 15px;
+	height: 15px;
+}
+.rounded .tl {
+	background-image: url( '/media/images/tl.png' );
+}
+.rounded .tr {
+	background-image: url( '/media/images/tr.png' );
+}
+.rounded .bl {
+	background-image: url( '/media/images/bl.png' );
+}
+.rounded .br {
+	background-image: url( '/media/images/br.png' );
+}
+.rounded.login .tl {
+	background-image: url( '/media/images/tlg.png' );
+}
+.rounded.login .tr {
+	background-image: url( '/media/images/trg.png' );
+}
+.rounded.login .bl {
+	background-image: url( '/media/images/blg.png' );
+}
+.rounded.login .br {
+	background-image: url( '/media/images/brg.png' );
+}
+
+#content {
+	font-size: 12px;
+}
+#content dt, #content dd {
+	margin: 0;
+	padding: 0;
+}
+#content dd {
+	margin: 0 0 20px 0;
+}
+#login {
+}
+#login h2 {
+	text-align: center;
+	font-size: 15px;
+	border-bottom: 1px solid #1C2112;
+	padding: 0 0 15px 0;
+	margin: 0 0 15px 0;
+}
+#login a {
+	color: #000000;
+}
+#login fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+#login fieldset legend {
+	color: #000000;
+}
+#login .content {
+	height: 220px
+}
+#miniNav {
+	margin: 10px 0 0 0;
+	padding: 10px 0 0 0;
+	height: 20px;
+	border-top: 1px solid #1C2112;
+}
+#miniNav li {
+	list-style: none;
+	display: inline;
+	margin: 0 5px 0 5px;
+	padding: 0;
+}
+#login label {
+	display: block;
+	text-align: right;
+	float: left;
+	width: 100px;
+	margin: 0;
+}
+#login input.float {
+	display: block;
+	float: left;
+	width: 200px;
+	margin-left: 10px;
+}
+#login input.button {
+	display: block;
+	font-size: 15px;
+	width: 60px;
+	height: 25px;
+	margin: 25px 0 0 250px;
+}

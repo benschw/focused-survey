@@ -1,0 +1,22 @@
+# AuthUserFile /home/benschw/svn/www.passwd
+# AuthName EnterPassword
+# AuthType Basic
+# Require valid-user
+
+RewriteEngine On
+RewriteRule ^$                   /fw.UI.Public.loadLogin [L,QSA]
+
+RewriteCond %{SCRIPT_FILENAME} -f [OR] 
+RewriteCond %{SCRIPT_FILENAME} -d
+RewriteRule .* - [L]
+
+RewriteRule ^home$               /fw.UI.Admin.loadAdmin [L,QSA]
+RewriteRule ^survey/(.*)$        /fw.UI.Public.loadSurvey?fkSurvey=$1 [L,QSA]
+
+RewriteRule ^fw\.(.*)$           /index.php?fw_request=$1 [L,QSA]
+
+
+
+RewriteRule ^download-csv/(.*)$  /fw.Survey.AdminSurvey.downloadReport?fkSurvey=$1 [L,QSA]
+
+RewriteRule ^cron$               /fw.Survey.PublicSurvey.runCron [L,QSA]

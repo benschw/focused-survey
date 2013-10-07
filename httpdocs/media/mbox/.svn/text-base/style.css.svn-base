@@ -1,0 +1,41 @@
+.mbox_wrapper {
+	position: absolute;
+}
+.mbox_innerWrapper {
+	background-color: #ffffff;
+}
+.mbox_clear {
+	clear: both;
+}
+.mbox_bg {
+	float: left;
+	width:    33px;
+	height:   40px;
+}
+
+.mbox_bg-n {
+	background: url(/media/mbox/mbox_bg_n.png) repeat-x;
+}
+.mbox_bg-ne {
+	background: url(/media/mbox/mbox_bg_ne.png) no-repeat;
+}
+.mbox_bg-e {
+	height:       100%;
+	background:   url(/media/mbox/mbox_bg_e.png) repeat-y;
+}
+.mbox_bg-se {
+	background: url(/media/mbox/mbox_bg_se.png) no-repeat;
+}
+.mbox_bg-s {
+	background: url(/media/mbox/mbox_bg_s.png) repeat-x;
+}
+.mbox_bg-sw {
+	background: url(/media/mbox/mbox_bg_sw.png) no-repeat;
+}
+.mbox_bg-w {
+	height:      100%;
+	background:  url(/media/mbox/mbox_bg_w.png) repeat-y;
+}
+.mbox_bg-nw {
+	background: url(/media/mbox/mbox_bg_nw.png) no-repeat;
+}

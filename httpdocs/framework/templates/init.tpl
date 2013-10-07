@@ -1,0 +1,1 @@
+<metal:block use-macro="${templatePath}${data/template}/component" />
