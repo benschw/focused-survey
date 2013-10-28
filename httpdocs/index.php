@@ -13,5 +13,3 @@ if( $controller->authenticate() && $controller->authorize() ) {
 } else {
 	header( "Location: /?notLoggedIn=true" );
 }
-
-?>

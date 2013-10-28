@@ -13,82 +13,78 @@ class Mysql {
 //===== Setup Methods ========================================================
 
 	public function __construct() {
-	  if( Config::$settings['database']['enabled'] ) {
-		  $this->connection = mysql_connect( Config::$settings['database']['server'], Config::$settings['database']['login'], Config::$settings['database']['password'] );
-		  $this->selectDatabase( Config::$settings['database']['database'] );
+		if (Config::$settings['database']['enabled']) {
+			$this->connection = mysqli_connect(
+				Config::$settings['database']['server'], 
+				Config::$settings['database']['login'], 
+				Config::$settings['database']['password'] 
+			);
+			$this->selectDatabase(Config::$settings['database']['database']);
 		}
 	}
 	
-  public static function singleton() {
+	public static function singleton() {
 		if (!isset(self::$instance)) {
 			$className = __CLASS__;
 			self::$instance = new $className;
 		}
 		return self::$instance;
-  }
+	}
 
-  public function __clone() {
+	public function __clone() {
 		throw( new Exception( "cannot clone object, it is singleton" ) );
-  }
-
-	public function selectDatabase( $dbName ) {
-		mysql_select_db( $dbName, $this->connection);
 	}
 
-	function query( $sql, $connection ) {
-		return mysql_query( $sql, $connection );
+	public function selectDatabase($dbName) {
+		mysqli_select_db($this->connection, $dbName);
 	}
 
-//===== Transactions =========================================================
+	function query($sql, $connection) {
+		return mysqli_query($connection, $sql);
+	}
 
-	function begin() {
-		return $this->query( "BEGIN", $this->connection );
-	}
-	function commit() {
-		return $this->query( "COMMIT", $this->connection );	
-	}
-	function rollback() {
-		return $this->query( "ROLLBACK", $this->connection );
-	}
 //===== Select Methods =======================================================
 
-	public function selectResource( $sql, $msg = false ) {
+	public function selectResource($sql, $msg = false) {
 		$this->queries[] = $sql;
 
-		$resultResource = $this->query( $sql, $this->connection );
+		$resultResource = $this->query($sql, $this->connection);
 
-		if( $resultResource ) {
-			return new MysqlIterator( $resultResource );
+		if ($resultResource) {
+			return new MysqlIterator($resultResource);
 		} else {
-			throw( new Exception( mysql_error( $this->connection) . "\n\n". $sql ) );
+			throw new Exception(mysqli_error($this->connection) . "\n\n". $sql);
 		}
 	}
-	public function selectIterator( $sql, $msg = false ) {
+
+	public function selectIterator($sql, $msg = false) {
 		$this->queries[] = $sql;
 
-		$resultResource = $this->query( $sql, $this->connection );
+		$resultResource = $this->query($sql, $this->connection);
 
 		if( $resultResource ) {
-			return new MysqlIterator( $resultResource );
+			return new MysqlIterator($resultResource);
 		} else {
-			throw( new Exception( mysql_error( $this->connection) . "\n\n". $sql ) );
+			throw new Exception(mysqli_error($this->connection) . "\n\n". $sql);
 		}
 	}
+
 	public function select( $sql, $msg = false ) {
 		$this->queries[] = $sql;
 
-		$resultResource = $this->query( $sql, $this->connection );
+		$resultResource = $this->query($sql, $this->connection);
 
 		if( $resultResource ) {
-			if ( mysql_num_rows( $resultResource ) > 0 ) {
-				while ( $result = mysql_fetch_assoc( $resultResource ) )
+			if (mysqli_num_rows($resultResource) > 0) {
+				while ($result = mysqli_fetch_assoc($resultResource)) {
 					$results[] = $result;
+				}
 				return (array)$results;
 			} else {
 				return array();
 			}
 		} else {
-			throw( new Exception( mysql_error( $this->connection) . "\n\n". $sql ) );
+			throw new Exception(mysqli_error($this->connection) . "\n\n". $sql);
 		}
 	}
 	
@@ -98,10 +94,10 @@ class Mysql {
 		$resultResource = $this->query( $sql, $this->connection );
 		
 		if( $resultResource ) {
-			list( $result ) = mysql_fetch_row( $resultResource );  
+			list( $result ) = mysqli_fetch_row( $resultResource );  
 			return $result;
 		} else {
-			throw( new Exception( mysql_error( $this->connection) . "\n\n". $sql ) );
+			throw new Exception(mysqli_error($this->connection) . "\n\n". $sql);
 		}
 	}
 
@@ -128,11 +124,12 @@ class Mysql {
 		
 		if( $resultResource ) {
 			$results = array();
-			while( list( $result ) = mysql_fetch_row( $resultResource ) )
+			while( list( $result ) = mysqli_fetch_row( $resultResource ) ) {
 				$results[] = $result;
+			}
 			return (array)$results;
 		} else {
-			throw( new Exception( mysql_error( $this->connection) . "\n\n". $sql ) );
+			throw new Exception(mysqli_error($this->connection) . "\n\n". $sql);
 		}
 
 	}
@@ -143,36 +140,37 @@ class Mysql {
 		$this->queries[] = $sql;
 		$resultResource = $this->query( $sql, $this->connection );
 
-		if( $resultResource !== false )
-			return mysql_affected_rows( $this->connection );
-		else
-			throw( new Exception( mysql_error( $this->connection ) . "\n\n". $sql ) );
+		if( $resultResource !== false ) {
+			return mysqli_affected_rows( $this->connection );
+		} else {
+			throw new Exception(mysqli_error($this->connection) . "\n\n". $sql);
+		}
 	}
 	
 	public function insert( $sql, $msg = false ) {
 		$this->queries[] = $sql;
 		$resultResource = $this->query( $sql, $this->connection );
 
-		if( $resultResource !== false )
-			return mysql_insert_id( $this->connection );
-		else
-			throw( new Exception( mysql_error( $this->connection ) . "\n\n". $sql ) );
+		if( $resultResource !== false ) {
+			return mysqli_insert_id( $this->connection );
+		} else {
+			throw new Exception(mysqli_error($this->connection) . "\n\n". $sql);
+		}
 	}
 	
 	public function delete( $sql, $msg = false ) {
 		$this->queries[] = $sql;
 		$resultResource = $this->query( $sql, $this->connection );
 
-		if( $resultResource !== false )
-			return mysql_affected_rows( $this->connection );
-		else
-			throw( new Exception( mysql_error( $this->connection ) . "\n\n". $sql ) );
+		if( $resultResource !== false ) {
+			return mysqli_affected_rows( $this->connection );
+		} else {
+			throw new Exception(mysqli_error($this->connection) . "\n\n". $sql);
+		}
 	}
 
 	public static function escapeString( $msg ) {
-		return mysql_real_escape_string( $msg );
+		return mysqli_real_escape_string( $msg );
 	}
 
 }
-
-?>

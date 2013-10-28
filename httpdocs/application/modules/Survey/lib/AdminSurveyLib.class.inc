@@ -8,12 +8,15 @@ class Survey_AdminSurveyLib {
 	//==========================================================================
 	
 	public static function getAllowedTools( $loginID, $fkSurvey, $currentPhase ) {
-		$fkUser 	= (int)$loginID;
+		$fkUser = (int)$loginID;
 		$fkSurvey = (int)$fkSurvey;
-		$prefs 		= Mysql::singleton()->selectRecord( "SELECT * 
-																										 FROM UserSurveyMap 
-																										WHERE fkUser = {$fkUser} 
-																											AND fkSurvey = {$fkSurvey}" );
+		$prefs = Mysql::singleton()->selectRecord( 
+			"SELECT * 
+			FROM UserSurveyMap 
+			WHERE fkUser = {$fkUser} 
+			AND fkSurvey = {$fkSurvey}" 
+		);
+		
 		if( !(bool)$prefs ) throw new Exception( "This survey doesn't seem to belong to you" );
 
 		$tools = array();
